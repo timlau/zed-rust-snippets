@@ -201,7 +201,7 @@
     "body": [
       "#[test]",
       "fn test_${1:name}() -> Result<()> {",
-      "\t\t${2:todo!()}",
+      "\t\t${2:todo!();}",
       "",
       "\t\tOk(())",
       "}",
@@ -327,6 +327,11 @@
     "description": "Err(Error::)",
     "body": ["Err(Error::${1:err})"]
   },
+  "println!(\"{:?}\")": {
+    "prefix": "ux-print-dbg",
+    "description": "description",
+    "body": ["println!(\"{:?}\", ${1:var});"]
+  },
   "Result<T>": {
     "prefix": "ux-result",
     "description": "Result<T>",
@@ -336,5 +341,20 @@
     "prefix": "ux-some",
     "description": "Some(value)",
     "body": ["Some(${1:value})"]
+  },
+  "new vector": {
+    "prefix": "ux-vec",
+    "description": "Create a new vector",
+    "body": ["let ${1:vec}: Vec<${2:String}> = Vec::new();"]
+  },
+  "new vec!": {
+    "prefix": "ux-vec!",
+    "description": "Create a new vector",
+    "body": ["let ${1:values} = vec![$2];"]
+  },
+  "new mut vector": {
+    "prefix": "ux-vec-mut",
+    "description": "Create a new vector",
+    "body": ["let mut ${1:vec}: Vec<${2:String}> = Vec::new();"]
   }
 }
