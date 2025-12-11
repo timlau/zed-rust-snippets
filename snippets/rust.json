@@ -1,136 +1,44 @@
 {
-  "hashmap <String, Vec<String>>": {
-    "prefix": "ux-hashmap-string-vec",
-    "description": "Insert HashMap ",
+  "add async function/method": {
+    "prefix": "ux-add-fn-async",
+    "description": "add async function/method",
     "body": [
-      "let mut ${1:map}: HashMap<${2:String}, Vec<${3:String}>> = HashMap::new();"
-    ]
-  },
-  "Hashmap Entry": {
-    "prefix": "ux-hashmap-entry",
-    "description": "insert entry in key/vec",
-    "body": ["${1:map}.entry(${2:key}).or_default().push(${3:value});"]
-  },
-
-  "use std::module::{}": {
-    "prefix": "ux-use-2",
-    "description": "Insert use statement",
-    "body": ["use ${1:std}::${2:submodule}::{${3:import}};"]
-  },
-
-  "use module::{}": {
-    "prefix": "ux-use-1",
-    "description": "Insert use statement",
-    "body": ["use ${1:module}::{${3:import}};"]
-  },
-
-  "Match an option": {
-    "prefix": "ux-match-option",
-    "description": "Match an option statement",
-    "body": [
-      "match ${1:option} {",
-      "  Some(value) => { $2 }",
-      "  None => { $3 }",
-      "}"
-    ]
-  },
-
-  "Match a result": {
-    "prefix": "ux-match-result",
-    "description": "Match a result statement",
-    "body": [
-      "match ${1:result} {",
-      "\tOk(value) => { $2 }",
-      "\tErr(error) => { $3 }",
-      "}"
-    ]
-  },
-
-  "for loop": {
-    "prefix": "ux-for",
-    "description": "Insert for loop",
-    "body": ["for ${1:elem} in ${2:iter} {", "\t$0", "}"]
-  },
-
-  "macro_rules": {
-    "prefix": "ux-macro-rules",
-    "description": "Insert macro_rules!",
-    "body": [
-      "macro_rules! ${1:my_macro} {",
-      "\t($2) => {",
-      "\t\t$0",
-      "\t};",
-      "}"
-    ]
-  },
-
-  "If let some": {
-    "prefix": "ux-if-some",
-    "description": "If let Some pattern matching",
-    "body": ["if let Some(${1:value}) = ${2:option} {", "  $3", "}"]
-  },
-
-  "Debug struct": {
-    "prefix": "ux-dbg-struct",
-    "description": "Debug struct",
-    "body": [
-      "#[derive(Debug)]",
-      "struct ${1:MyStruct} {",
-      "  ${2:value}: ${3:String},",
+      "async fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
+      "\t${5:todo!();}",
       "}",
       "\n"
     ]
   },
-
-  "Debug enum": {
-    "prefix": "ux-dbg-enum",
-    "description": "Debug enum",
+  "add function/method": {
+    "prefix": "ux-add-fn",
+    "description": "add function/method",
     "body": [
-      "#[derive(Debug)]",
-      "enum ${1:Name} {",
-      "  ${2:Variant1},",
-      "  ${3:Variant2},",
+      "fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
+      "\t${5:todo!();}",
       "}",
       "\n"
     ]
   },
-
-  "Derive traits": {
-    "prefix": "ux-dbg-derive-plus",
-    "description": "Derive traits",
-    "body": ["#[derive(Debug,${1})]"]
-  },
-
-  "Derive": {
-    "prefix": "ux-dbg-derive",
-    "description": "Derive",
-    "body": ["#[derive(${1})]"]
-  },
-
-  "define Error/Result": {
-    "prefix": "ux-error-dev",
-    "description": "define Error/Result for early dev.",
+  "add pub async function/method": {
+    "prefix": "ux-add-fn-pub-async",
+    "description": "add pub async function/method",
     "body": [
-      "/// Define Error/Result for early dev.",
-      "pub type Result<T> = core::result::Result<T, Error>;",
-      "pub type Error = Box<dyn std::error::Error>; // For early dev.",
+      "pub async fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
+      "\t${5:todo!();}",
+      "}",
       "\n"
     ]
   },
-
-  "Main fn": {
-    "prefix": "ux-fn-main-result",
-    "description": "main fn returning Result",
+  "add pub function/method": {
+    "prefix": "ux-add-fn-pub",
+    "description": "add pub function/method",
     "body": [
-      "fn main() -> Result<()> {",
-      "\t${2}println!(\"Hello, world!\");",
-      "",
-      "\tOk(())",
+      "pub fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
+      "\t${5:todo!();}",
       "}",
-      ""
+      "\n"
     ]
   },
-
   "Async main fn ": {
     "prefix": "ux-fn-main-async",
     "description": "async main fn with basic error handling",
@@ -144,7 +52,236 @@
       ""
     ]
   },
-
+  "Main fn": {
+    "prefix": "ux-fn-main-result",
+    "description": "main fn returning Result",
+    "body": [
+      "fn main() -> Result<()> {",
+      "\t${2}println!(\"Hello, world!\");",
+      "",
+      "\tOk(())",
+      "}",
+      ""
+    ]
+  },
+  "for loop": {
+    "prefix": "ux-for",
+    "description": "Insert for loop",
+    "body": ["for ${1:elem} in ${2:iter} {", "\t$0", "}"]
+  },
+  "Hashmap Entry": {
+    "prefix": "ux-hashmap-entry",
+    "description": "insert entry in key/vec",
+    "body": ["${1:map}.entry(${2:key}).or_default().push(${3:value});"]
+  },
+  "hashmap <String, Vec<String>>": {
+    "prefix": "ux-hashmap-string-vec",
+    "description": "Insert HashMap ",
+    "body": [
+      "let mut ${1:map}: HashMap<${2:String}, Vec<${3:String}>> = HashMap::new();"
+    ]
+  },
+  "If let some": {
+    "prefix": "ux-if-some",
+    "description": "If let Some pattern matching",
+    "body": ["if let Some(${1:value}) = ${2:option} {", "  $3", "}"]
+  },
+  "impl default method": {
+    "prefix": "ux-impl-default",
+    "description": "implement default method",
+    "body": [
+      "impl ${1:MyStrunc} {",
+      "\tpub fn default() -> Self {",
+      "\t\tSelf {",
+      "\t\t\t${2}",
+      "\t\t}",
+      "\t}",
+      "}",
+      "\n"
+    ]
+  },
+  "impl From": {
+    "prefix": "ux-impl-from",
+    "description": "impl From implementation",
+    "body": [
+      "impl From<${1:from_type}> for ${2:MyStruct} {",
+      "\tfn from(val: ${1}) -> Self {",
+      "\t\t$3",
+      "\t}",
+      "}",
+      "\n"
+    ]
+  },
+  "impl struct method": {
+    "prefix": "ux-impl-method",
+    "description": "impl struct method",
+    "body": [
+      "impl ${1:MyStrunc} {",
+      "\tpub fn ${2:my_method}(${3}) -> ${4:()} {",
+      "\t\t${5:todo!();}",
+      "\t}",
+      "}",
+      "\n"
+    ]
+  },
+  "impl new method": {
+    "prefix": "ux-impl-new",
+    "description": "impl new method",
+    "body": [
+      "impl ${1:MyStrunc} {",
+      "\tpub fn new(${2:value}: ${3:String}) -> Self {",
+      "\t\tSelf {",
+      "\t\t\t${4}",
+      "\t\t}",
+      "\t}",
+      "}",
+      "\n"
+    ]
+  },
+  "impl TryFrom": {
+    "prefix": "ux-impl-try-from",
+    "description": "impl TryFrom implementation (assume Result<T> in scope)",
+    "body": [
+      "impl TryFrom<${1:FromType}> for ${2:MyStruct} {",
+      "\ttype Error = ${3:Error};",
+      "\tfn try_from(val: ${1}) -> Result<${2}> {",
+      "\t\t$4",
+      "\t}",
+      "}",
+      "\n"
+    ]
+  },
+  "macro_rules": {
+    "prefix": "ux-macro-rules",
+    "description": "Insert macro_rules!",
+    "body": [
+      "macro_rules! ${1:my_macro} {",
+      "\t($2) => {",
+      "\t\t$0",
+      "\t};",
+      "}"
+    ]
+  },
+  "Match an option": {
+    "prefix": "ux-match-option",
+    "description": "Match an option statement",
+    "body": [
+      "match ${1:option} {",
+      "  Some(value) => { $2 }",
+      "  None => { $3 }",
+      "}"
+    ]
+  },
+  "Match a result": {
+    "prefix": "ux-match-result",
+    "description": "Match a result statement",
+    "body": [
+      "match ${1:result} {",
+      "\tOk(value) => { $2 }",
+      "\tErr(error) => { $3 }",
+      "}"
+    ]
+  },
+  "async test-function": {
+    "prefix": "ux-test-fn-async",
+    "description": "async test function",
+    "body": [
+      "#[tokio::test]",
+      "async fn test_${1:name}() -> Result<()> {",
+      "\t${2}",
+      "",
+      "\t\tOk(())",
+      "}",
+      "\n"
+    ]
+  },
+  "test-function": {
+    "prefix": "ux-test-fn",
+    "description": "Unit test function",
+    "body": [
+      "#[test]",
+      "fn test_${1:name}() -> Result<()> {",
+      "\t\t${2:todo!()}",
+      "",
+      "\t\tOk(())",
+      "}",
+      "\n"
+    ]
+  },
+  "test-module": {
+    "prefix": "ux-test-module",
+    "description": "Unit test sub module boilerplate",
+    "body": [
+      "",
+      "#[cfg(test)]",
+      "mod tests {",
+      "\ttype Result<T> = core::result::Result<T, Box<dyn std::error::Error>>; // For tests.",
+      "",
+      "\tuse super::*;",
+      "",
+      "\t$1",
+      "}",
+      ""
+    ]
+  },
+  "to_string()": {
+    "prefix": "ux-to-string",
+    "description": "add .to_string()",
+    "body": ["to_string()"]
+  },
+  "use module::{}": {
+    "prefix": "ux-use-1",
+    "description": "Insert use statement",
+    "body": ["use ${1:module}::{${3:import}};\n"]
+  },
+  "use std::module::{}": {
+    "prefix": "ux-use-2",
+    "description": "Insert use statement",
+    "body": ["use ${1:std}::${2:submodule}::{${3:import}};"]
+  },
+  "Derive": {
+    "prefix": "ux-dbg-derive",
+    "description": "Derive",
+    "body": ["#[derive(${1})]"]
+  },
+  "Derive traits": {
+    "prefix": "ux-dbg-derive-plus",
+    "description": "Derive traits",
+    "body": ["#[derive(Debug,${1})]\n"]
+  },
+  "Debug enum": {
+    "prefix": "ux-dbg-enum",
+    "description": "Debug enum",
+    "body": [
+      "#[derive(Debug)]",
+      "enum ${1:Name} {",
+      "  ${2:Variant1},",
+      "  ${3:Variant2},",
+      "}",
+      "\n"
+    ]
+  },
+  "Debug struct": {
+    "prefix": "ux-dbg-struct",
+    "description": "Debug struct",
+    "body": [
+      "#[derive(Debug)]",
+      "struct ${1:MyStruct} {",
+      "  ${2:value}: ${3:String},",
+      "}",
+      "\n"
+    ]
+  },
+  "define Error/Result": {
+    "prefix": "ux-error-dev",
+    "description": "define Error/Result for early dev.",
+    "body": [
+      "/// Define Error/Result for early dev.",
+      "pub type Result<T> = core::result::Result<T, Error>;",
+      "pub type Error = Box<dyn std::error::Error>; // For early dev.",
+      "\n"
+    ]
+  },
   "lib with error handling": {
     "prefix": "ux-error-lib",
     "body": [
@@ -155,7 +292,6 @@
       "${1}"
     ]
   },
-
   "custom error.rs": {
     "prefix": "ux-error-rs",
     "description": "Custom Error boilerplate",
@@ -181,193 +317,24 @@
       ""
     ]
   },
-
-  "impl From": {
-    "prefix": "ux-impl-from",
-    "description": "impl From implementation",
-    "body": [
-      "impl From<${1:from_type}> for ${2:MyStruct} {",
-      "\tfn from(val: ${1}) -> Self {",
-      "\t\t$3",
-      "\t}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "impl TryFrom": {
-    "prefix": "ux-impl-try-from",
-    "description": "impl TryFrom implementation (assume Result<T> in scope)",
-    "body": [
-      "impl TryFrom<${1:FromType}> for ${2:MyStruct} {",
-      "\ttype Error = ${3:Error};",
-      "\tfn try_from(val: ${1}) -> Result<${2}> {",
-      "\t\t$4",
-      "\t}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "impl struct method": {
-    "prefix": "ux-impl-method",
-    "description": "impl struct method",
-    "body": [
-      "impl ${1:MyStrunc} {",
-      "\tpub fn ${2:my_method}(${3}) -> ${4:()} {",
-      "\t\t${5:todo!();}",
-      "\t}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "add function/method": {
-    "prefix": "ux-add-fn",
-    "description": "add function/method",
-    "body": [
-      "fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
-      "\t${5:todo!();}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "add pub function/method": {
-    "prefix": "ux-add-fn-pub",
-    "description": "add pub function/method",
-    "body": [
-      "pub fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
-      "\t${5:todo!();}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "add async function/method": {
-    "prefix": "ux-add-fn-async",
-    "description": "add async function/method",
-    "body": [
-      "async fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
-      "\t${5:todo!();}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "add pub async function/method": {
-    "prefix": "ux-add-fn-pub-async",
-    "description": "add pub async function/method",
-    "body": [
-      "pub async fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
-      "\t${5:todo!();}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "impl new method": {
-    "prefix": "ux-impl-new",
-    "description": "impl new method",
-    "body": [
-      "impl ${1:MyStrunc} {",
-      "\tpub fn new(${2:value}: ${3:String}) -> Self {",
-      "\t\tSelf {",
-      "\t\t\t${4}",
-      "\t\t}",
-      "\t}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "impl default method": {
-    "prefix": "ux-impl-default",
-    "description": "implement default method",
-    "body": [
-      "impl ${1:MyStrunc} {",
-      "\tpub fn default() -> Self {",
-      "\t\tSelf {",
-      "\t\t\t${2}",
-      "\t\t}",
-      "\t}",
-      "}",
-      "\n"
-    ]
-  },
-
-  "Result<T>": {
-    "prefix": "ux-result",
-    "description": "Result<T>",
-    "body": ["Result<${1:T}>"]
-  },
-
-  "Some(Value)": {
-    "prefix": "ux-some",
-    "description": "Some(value)",
-    "body": ["Some(${1:value})"]
-  },
-
   "Err(err)": {
     "prefix": "ux-misc-err",
     "description": "Err(err)",
     "body": ["Err(${1:err})"]
   },
-
   "Err(Error::)": {
     "prefix": "ux-misc-err-custom",
     "description": "Err(Error::)",
     "body": ["Err(Error::${1:err})"]
   },
-
-  "to_string()": {
-    "prefix": "ux-to-string",
-    "description": "add .to_string()",
-    "body": ["to_string()"]
+  "Result<T>": {
+    "prefix": "ux-result",
+    "description": "Result<T>",
+    "body": ["Result<${1:T}>"]
   },
-
-  "test-module": {
-    "prefix": "ux-test-module",
-    "description": "Unit test sub module boilerplate",
-    "body": [
-      "",
-      "#[cfg(test)]",
-      "mod tests {",
-      "\ttype Result<T> = core::result::Result<T, Box<dyn std::error::Error>>; // For tests.",
-      "",
-      "\tuse super::*;",
-      "",
-      "\t$1",
-      "}",
-      ""
-    ]
-  },
-
-  "test-function": {
-    "prefix": "ux-test-fn",
-    "description": "Unit test function",
-    "body": [
-      "#[test]",
-      "fn test_${1:name}() -> Result<()> {",
-      "\t\t${2:todo!()}",
-      "",
-      "\t\tOk(())",
-      "}",
-      "\n"
-    ]
-  },
-
-  "async test-function": {
-    "prefix": "ux-test-fn-async",
-    "description": "async test function",
-    "body": [
-      "#[tokio::test]",
-      "async fn test_${1:name}() -> Result<()> {",
-      "\t${2}",
-      "",
-      "\t\tOk(())",
-      "}",
-      "\n"
-    ]
+  "Some(Value)": {
+    "prefix": "ux-some",
+    "description": "Some(value)",
+    "body": ["Some(${1:value})"]
   }
 }
