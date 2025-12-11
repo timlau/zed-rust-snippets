@@ -1,4 +1,17 @@
 {
+  "hashmap <String, Vec<String>>": {
+    "prefix": "ux-hashmap-string-vec",
+    "description": "Insert HashMap ",
+    "body": [
+      "let mut ${1:map}: HashMap<${2:String}, Vec<${3:String}>> = HashMap::new();"
+    ]
+  },
+  "Hashmap Entry": {
+    "prefix": "ux-hashmap-entry",
+    "description": "insert entry in key/vec",
+    "body": ["${1:map}.entry(${2:key}).or_default().push(${3:value});"]
+  },
+
   "use std::module::{}": {
     "prefix": "ux-use-2",
     "description": "Insert use statement",
