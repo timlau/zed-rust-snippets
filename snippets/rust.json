@@ -1,6 +1,6 @@
 {
   "add async function/method": {
-    "prefix": "ux-add-fn-async",
+    "prefix": "1u-add-fn-async",
     "description": "add async function/method",
     "body": [
       "async fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
@@ -10,7 +10,7 @@
     ]
   },
   "add function/method": {
-    "prefix": "ux-add-fn",
+    "prefix": "1u-add-fn",
     "description": "add function/method",
     "body": [
       "fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
@@ -20,7 +20,7 @@
     ]
   },
   "add pub async function/method": {
-    "prefix": "ux-add-fn-pub-async",
+    "prefix": "1u-add-fn-pub-async",
     "description": "add pub async function/method",
     "body": [
       "pub async fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
@@ -30,7 +30,7 @@
     ]
   },
   "add pub function/method": {
-    "prefix": "ux-add-fn-pub",
+    "prefix": "1u-add-fn-pub",
     "description": "add pub function/method",
     "body": [
       "pub fn ${1:myfunc}(${2:value}: ${3:String}) -> ${4:String} {",
@@ -39,8 +39,8 @@
       "\n"
     ]
   },
-  "Async main fn ": {
-    "prefix": "ux-fn-main-async",
+  "ssync main fn() ": {
+    "prefix": "1u-fn-main-async",
     "description": "async main fn returning Result",
     "body": [
       "#[tokio::main]",
@@ -52,8 +52,8 @@
       ""
     ]
   },
-  "Main fn": {
-    "prefix": "ux-fn-main-result",
+  "main fn": {
+    "prefix": "1u-fn-main-result",
     "description": "main fn returning Result",
     "body": [
       "fn main() -> Result<()> {",
@@ -65,29 +65,29 @@
     ]
   },
   "for loop": {
-    "prefix": "ux-for",
+    "prefix": "1u-for",
     "description": "for loop",
     "body": ["for ${1:elem} in ${2:iter} {", "\t$0", "}"]
   },
-  "Hashmap Entry": {
-    "prefix": "ux-hashmap-entry",
+  "HashMap Entry": {
+    "prefix": "1u-hashmap-entry",
     "description": "append value to vector in hashmap",
     "body": ["${1:map}.entry(${2:key}).or_default().push(${3:value});"]
   },
-  "hashmap <String, Vec<String>>": {
-    "prefix": "ux-hashmap-string-vec",
+  "HashMap <String, Vec<String>>": {
+    "prefix": "1u-hashmap-string-vec",
     "description": "define HashMap <T, Vec<U>>",
     "body": [
       "let mut ${1:map}: HashMap<${2:String}, Vec<${3:String}>> = HashMap::new();"
     ]
   },
-  "If let some": {
-    "prefix": "ux-if-some",
+  "if let some": {
+    "prefix": "1u-if-some",
     "description": "if let Some pattern matching",
     "body": ["if let Some(${1:value}) = ${2:option} {", "  $3", "}"]
   },
   "impl default method": {
-    "prefix": "ux-impl-default",
+    "prefix": "1u-impl-default",
     "description": "implement default() method for struct",
     "body": [
       "impl ${1:MyStrunc} {",
@@ -101,7 +101,7 @@
     ]
   },
   "impl From": {
-    "prefix": "ux-impl-from",
+    "prefix": "1u-impl-from",
     "description": "impl From implementation for struct",
     "body": [
       "impl From<${1:from_type}> for ${2:MyStruct} {",
@@ -113,7 +113,7 @@
     ]
   },
   "impl struct method": {
-    "prefix": "ux-impl-method",
+    "prefix": "1u-impl-method",
     "description": "impl method for struct",
     "body": [
       "impl ${1:MyStrunc} {",
@@ -125,7 +125,7 @@
     ]
   },
   "impl new method": {
-    "prefix": "ux-impl-new",
+    "prefix": "1u-impl-new",
     "description": "impl new method for struct",
     "body": [
       "impl ${1:MyStrunc} {",
@@ -139,7 +139,7 @@
     ]
   },
   "impl TryFrom": {
-    "prefix": "ux-impl-try-from",
+    "prefix": "1u-impl-try-from",
     "description": "impl TryFrom for struct (assume Result<T> in scope)",
     "body": [
       "impl TryFrom<${1:FromType}> for ${2:MyStruct} {",
@@ -152,7 +152,7 @@
     ]
   },
   "macro_rules": {
-    "prefix": "ux-macro-rules",
+    "prefix": "1u-macro-rules",
     "description": "define macro_rules!",
     "body": [
       "macro_rules! ${1:my_macro} {",
@@ -163,7 +163,7 @@
     ]
   },
   "Match an option": {
-    "prefix": "ux-match-option",
+    "prefix": "1u-match-option",
     "description": "match an option statement",
     "body": [
       "match ${1:option} {",
@@ -173,7 +173,7 @@
     ]
   },
   "Match a result": {
-    "prefix": "ux-match-result",
+    "prefix": "1u-match-result",
     "description": "match a result statement",
     "body": [
       "match ${1:result} {",
@@ -183,7 +183,7 @@
     ]
   },
   "async test-function": {
-    "prefix": "ux-test-fn-async",
+    "prefix": "1u-test-fn-async",
     "description": "async test function",
     "body": [
       "#[tokio::test]",
@@ -196,7 +196,7 @@
     ]
   },
   "test-function": {
-    "prefix": "ux-test-fn",
+    "prefix": "1u-test-fn",
     "description": "test function",
     "body": [
       "#[test]",
@@ -209,7 +209,7 @@
     ]
   },
   "test-module": {
-    "prefix": "ux-test-module",
+    "prefix": "1u-test-module",
     "description": "test module boilerplate",
     "body": [
       "",
@@ -225,32 +225,32 @@
     ]
   },
   "to_string()": {
-    "prefix": "ux-to-string",
+    "prefix": "1u-to-string",
     "description": ".to_string()",
     "body": ["to_string()"]
   },
   "use module::{}": {
-    "prefix": "ux-use-1",
+    "prefix": "1u-use-1",
     "description": "use <module>::<imports>",
     "body": ["use ${1:module}::{${3:import}};\n"]
   },
   "use std::module::{}": {
-    "prefix": "ux-use-2",
+    "prefix": "1u-use-2",
     "description": "use <module>::<sub-module>::<imports>",
     "body": ["use ${1:std}::${2:submodule}::{${3:import}};"]
   },
   "Derive": {
-    "prefix": "ux-dbg-derive",
+    "prefix": "1u-dbg-derive",
     "description": "#[derive(<traits>)]",
     "body": ["#[derive(Debug,${1})]"]
   },
   "Derive traits": {
-    "prefix": "ux-dbg-derive-plus",
+    "prefix": "1u-dbg-derive-plus",
     "description": "#[derive(Debug, <traits>)]",
     "body": ["#[derive(Debug,${1})]\n"]
   },
   "Debug enum": {
-    "prefix": "ux-dbg-enum",
+    "prefix": "1u-dbg-enum",
     "description": "enum with Debug derive",
     "body": [
       "#[derive(Debug)]",
@@ -262,7 +262,7 @@
     ]
   },
   "Debug struct": {
-    "prefix": "ux-dbg-struct",
+    "prefix": "1u-dbg-struct",
     "description": "struct with Debug derive",
     "body": [
       "#[derive(Debug)]",
@@ -273,7 +273,7 @@
     ]
   },
   "define Error/Result": {
-    "prefix": "ux-error-dev",
+    "prefix": "1u-error-dev",
     "description": "define Error/Result types for early dev.",
     "body": [
       "// Setup dynamic Error & Result type",
@@ -283,7 +283,7 @@
     ]
   },
   "custom error.rs": {
-    "prefix": "ux-error-rs",
+    "prefix": "1u-error-rs",
     "description": "custom Error boilerplate",
     "body": [
       "// Setup Result Type",
@@ -308,37 +308,37 @@
     ]
   },
   "Err(err)": {
-    "prefix": "ux-misc-err",
+    "prefix": "1u-misc-err",
     "description": "Err(err)",
     "body": ["Err(${1:err})"]
   },
   "Err(Error::)": {
-    "prefix": "ux-misc-err-custom",
+    "prefix": "1u-misc-err-custom",
     "description": "Err(Error::)",
     "body": ["Err(Error::${1:err})"]
   },
   "println!(\"{:?}\")": {
-    "prefix": "ux-print-dbg",
+    "prefix": "1u-print-dbg",
     "description": "debug print a value",
     "body": ["println!(\"{:?}\", ${1:var});"]
   },
   "Result<T>": {
-    "prefix": "ux-result",
+    "prefix": "1u-result",
     "description": "Result<T>",
     "body": ["Result<${1:T}>"]
   },
   "Some(Value)": {
-    "prefix": "ux-some",
+    "prefix": "1u-some",
     "description": "Some(value)",
     "body": ["Some(${1:value})"]
   },
   "new vec!": {
-    "prefix": "ux-vec!",
+    "prefix": "1u-vec!",
     "description": "Create a new vector with values",
     "body": ["let ${1:values} = vec![$2];"]
   },
   "new mut vector": {
-    "prefix": "ux-vec-mut",
+    "prefix": "1u-vec-mut",
     "description": "Create a new mutable vector",
     "body": ["let mut ${1:values}: Vec<${2:String}> = Vec::new();"]
   }
