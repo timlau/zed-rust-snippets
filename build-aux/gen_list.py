@@ -16,4 +16,6 @@ print("\n## Snippets\n")
 print(f"|{col1:25}|{col2:40}|")
 print(f"|{25 * '-'}|{40 * '-'}|")
 for prefix, description in snippet_list:
+    description = description.replace("<", "\\<")
+    description = description.replace(">", "\\>")
     print(f"|{prefix:25}|{description:40}|")
