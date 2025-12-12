@@ -2,7 +2,6 @@
 
 import json
 from pathlib import Path
-from socket import SO_TYPE
 
 input_file = Path("snippets/rust.json")
 
