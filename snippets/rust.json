@@ -41,7 +41,7 @@
   },
   "Async main fn ": {
     "prefix": "ux-fn-main-async",
-    "description": "async main fn with basic error handling",
+    "description": "async main fn returning Result",
     "body": [
       "#[tokio::main]",
       "async fn main() -> Result<()> {",
@@ -66,29 +66,29 @@
   },
   "for loop": {
     "prefix": "ux-for",
-    "description": "Insert for loop",
+    "description": "for loop",
     "body": ["for ${1:elem} in ${2:iter} {", "\t$0", "}"]
   },
   "Hashmap Entry": {
     "prefix": "ux-hashmap-entry",
-    "description": "insert entry in key/vec",
+    "description": "append value to vector in hashmap",
     "body": ["${1:map}.entry(${2:key}).or_default().push(${3:value});"]
   },
   "hashmap <String, Vec<String>>": {
     "prefix": "ux-hashmap-string-vec",
-    "description": "Insert HashMap ",
+    "description": "define HashMap <T, Vec<U>>",
     "body": [
       "let mut ${1:map}: HashMap<${2:String}, Vec<${3:String}>> = HashMap::new();"
     ]
   },
   "If let some": {
     "prefix": "ux-if-some",
-    "description": "If let Some pattern matching",
+    "description": "if let Some pattern matching",
     "body": ["if let Some(${1:value}) = ${2:option} {", "  $3", "}"]
   },
   "impl default method": {
     "prefix": "ux-impl-default",
-    "description": "implement default method",
+    "description": "implement default() method for struct",
     "body": [
       "impl ${1:MyStrunc} {",
       "\tpub fn default() -> Self {",
@@ -102,7 +102,7 @@
   },
   "impl From": {
     "prefix": "ux-impl-from",
-    "description": "impl From implementation",
+    "description": "impl From implementation for struct",
     "body": [
       "impl From<${1:from_type}> for ${2:MyStruct} {",
       "\tfn from(val: ${1}) -> Self {",
@@ -114,7 +114,7 @@
   },
   "impl struct method": {
     "prefix": "ux-impl-method",
-    "description": "impl struct method",
+    "description": "impl method for struct",
     "body": [
       "impl ${1:MyStrunc} {",
       "\tpub fn ${2:my_method}(${3}) -> ${4:()} {",
@@ -126,7 +126,7 @@
   },
   "impl new method": {
     "prefix": "ux-impl-new",
-    "description": "impl new method",
+    "description": "impl new method for struct",
     "body": [
       "impl ${1:MyStrunc} {",
       "\tpub fn new(${2:value}: ${3:String}) -> Self {",
@@ -140,7 +140,7 @@
   },
   "impl TryFrom": {
     "prefix": "ux-impl-try-from",
-    "description": "impl TryFrom implementation (assume Result<T> in scope)",
+    "description": "impl TryFrom for struct (assume Result<T> in scope)",
     "body": [
       "impl TryFrom<${1:FromType}> for ${2:MyStruct} {",
       "\ttype Error = ${3:Error};",
@@ -153,7 +153,7 @@
   },
   "macro_rules": {
     "prefix": "ux-macro-rules",
-    "description": "Insert macro_rules!",
+    "description": "define macro_rules!",
     "body": [
       "macro_rules! ${1:my_macro} {",
       "\t($2) => {",
@@ -164,7 +164,7 @@
   },
   "Match an option": {
     "prefix": "ux-match-option",
-    "description": "Match an option statement",
+    "description": "match an option statement",
     "body": [
       "match ${1:option} {",
       "  Some(value) => { $2 }",
@@ -174,7 +174,7 @@
   },
   "Match a result": {
     "prefix": "ux-match-result",
-    "description": "Match a result statement",
+    "description": "match a result statement",
     "body": [
       "match ${1:result} {",
       "\tOk(value) => { $2 }",
@@ -197,7 +197,7 @@
   },
   "test-function": {
     "prefix": "ux-test-fn",
-    "description": "Unit test function",
+    "description": "test function",
     "body": [
       "#[test]",
       "fn test_${1:name}() -> Result<()> {",
@@ -210,7 +210,7 @@
   },
   "test-module": {
     "prefix": "ux-test-module",
-    "description": "Unit test sub module boilerplate",
+    "description": "test module boilerplate",
     "body": [
       "",
       "#[cfg(test)]",
@@ -226,32 +226,32 @@
   },
   "to_string()": {
     "prefix": "ux-to-string",
-    "description": "add .to_string()",
+    "description": ".to_string()",
     "body": ["to_string()"]
   },
   "use module::{}": {
     "prefix": "ux-use-1",
-    "description": "Insert use statement",
+    "description": "use <module>::<imports>",
     "body": ["use ${1:module}::{${3:import}};\n"]
   },
   "use std::module::{}": {
     "prefix": "ux-use-2",
-    "description": "Insert use statement",
+    "description": "use <module>::<sub-module>::<imports>",
     "body": ["use ${1:std}::${2:submodule}::{${3:import}};"]
   },
   "Derive": {
     "prefix": "ux-dbg-derive",
-    "description": "Derive",
-    "body": ["#[derive(${1})]"]
+    "description": "#[derive(<traits>)]",
+    "body": ["#[derive(Debug,${1})]"]
   },
   "Derive traits": {
     "prefix": "ux-dbg-derive-plus",
-    "description": "Derive traits",
+    "description": "#[derive(Debug, <traits>)]",
     "body": ["#[derive(Debug,${1})]\n"]
   },
   "Debug enum": {
     "prefix": "ux-dbg-enum",
-    "description": "Debug enum",
+    "description": "enum with Debug derive",
     "body": [
       "#[derive(Debug)]",
       "enum ${1:Name} {",
@@ -263,7 +263,7 @@
   },
   "Debug struct": {
     "prefix": "ux-dbg-struct",
-    "description": "Debug struct",
+    "description": "struct with Debug derive",
     "body": [
       "#[derive(Debug)]",
       "struct ${1:MyStruct} {",
@@ -274,27 +274,17 @@
   },
   "define Error/Result": {
     "prefix": "ux-error-dev",
-    "description": "define Error/Result for early dev.",
+    "description": "define Error/Result types for early dev.",
     "body": [
-      "/// Define Error/Result for early dev.",
+      "// Setup dynamic Error & Result type",
       "pub type Result<T> = core::result::Result<T, Error>;",
       "pub type Error = Box<dyn std::error::Error>; // For early dev.",
       "\n"
     ]
   },
-  "lib with error handling": {
-    "prefix": "ux-error-lib",
-    "body": [
-      "// Setup dynamic Error & Result type",
-      "pub type Result<T> = core::result::Result<T, Error>;",
-      "pub type Error = Box<dyn std::error::Error>; // For early dev.",
-      "",
-      "${1}"
-    ]
-  },
   "custom error.rs": {
     "prefix": "ux-error-rs",
-    "description": "Custom Error boilerplate",
+    "description": "custom Error boilerplate",
     "body": [
       "// Setup Result Type",
       "pub type Result<T> = core::result::Result<T, Error>;",
@@ -329,7 +319,7 @@
   },
   "println!(\"{:?}\")": {
     "prefix": "ux-print-dbg",
-    "description": "description",
+    "description": "debug print a value",
     "body": ["println!(\"{:?}\", ${1:var});"]
   },
   "Result<T>": {
@@ -342,19 +332,14 @@
     "description": "Some(value)",
     "body": ["Some(${1:value})"]
   },
-  "new vector": {
-    "prefix": "ux-vec",
-    "description": "Create a new vector",
-    "body": ["let ${1:vec}: Vec<${2:String}> = Vec::new();"]
-  },
   "new vec!": {
     "prefix": "ux-vec!",
-    "description": "Create a new vector",
+    "description": "Create a new vector with values",
     "body": ["let ${1:values} = vec![$2];"]
   },
   "new mut vector": {
     "prefix": "ux-vec-mut",
-    "description": "Create a new vector",
-    "body": ["let mut ${1:vec}: Vec<${2:String}> = Vec::new();"]
+    "description": "Create a new mutable vector",
+    "body": ["let mut ${1:values}: Vec<${2:String}> = Vec::new();"]
   }
 }
